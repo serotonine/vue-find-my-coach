@@ -1,26 +1,74 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <!-- 2 !! convert a string to a boolean!! -->
+    <base-dialog :show="!!error" title="An error occured" @close="closeDialog">
+      <p>{{ error }}</p>
+    </base-dialog>
+    <div v-if="contentLoaded">
+      <the-header></the-header>
+      <router-view v-slot="slotProps">
+        <transition name="route" mode="out-in">
+          <component :is="slotProps.Component"></component>
+        </transition> 
+      </router-view>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TheHeader from "./components/TheHeader.vue";
+import BaseDialog from "@/components/UI/BaseDialog.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    TheHeader,
+    BaseDialog,
+  },
+  data() {
+    return {
+      contentLoaded: false,
+      error: null,
+    };
+  },
+  methods: {
+    async loadFindMyCoach() {
+      try {
+        await this.$store.dispatch("_loader/loadfindMyCoach");
+        this.contentLoaded = true;
+      } catch (error) {
+        this.error = error.message || "error";
+      }
+    },
+    closeDialog() {
+      this.error = null;
+    },
+  },
+  created() {
+    this.loadFindMyCoach();
+  },
+ 
+};
 </script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+/* TRANSITION */
+.route-enter-from{
+  opacity:0;
+  transform: translateY(-30px);
 }
-</style>
+.route-leave-to{
+  opacity:0;
+  transform: translateY(30px);
+}
+.route-enter-active
+{
+  transition: all 0.3s ease-out;
+}
+.route-leave-active{
+  transition: all 0.3s ease-in;
+}
+.route-enter-to,
+.route-leave-from{
+  opacity:1;
+  transform: translateY(0);
+}</style>

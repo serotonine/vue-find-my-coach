@@ -1,0 +1,7 @@
+
+.cart{
+  @apply rounded-md shadow-md shadow-neutrals-20 bg-white border-neutrals-20 border p-6
+}
+.cart-grid{
+  @apply h-full w-full flex flex-col;
+}

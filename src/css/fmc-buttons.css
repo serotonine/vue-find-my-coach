@@ -1,0 +1,72 @@
+button[type='text'],
+button[type='button'],
+button[type='submit'] {
+  background-color: theme('colors.primary.green.40');
+  color: white;
+  border-radius: .25rem;
+  cursor: pointer;
+  padding: 0.25rem 0.75rem;
+  border-color: theme('colors.primary.green.50');
+  border-style: solid;
+  transition: all 0.2s;
+  height: fit-content;
+
+  &:hover {
+    background-color: theme('colors.primary.green.50');
+  }
+
+  &.flat {
+    @apply text-sm bg-white text-primary-green-50 border-none;
+  }
+
+  &.flat:hover {
+    @apply text-sm bg-primary-green-30 text-white;
+  }
+
+  &.flat:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  &.highlighted {
+    background-color: theme('colors.primary.blue.60');
+    border-color: theme('colors.primary.blue.70');
+    &:hover {
+      background-color: theme('colors.primary.blue.50');
+    }
+  }
+
+  &.danger {
+    background-color: theme('colors.supporting.red.50');
+    border-color: theme('colors.supporting.red.60');
+
+    &:hover {
+      background-color: theme('colors.supporting.red.60');
+    }
+  }
+
+  &.close {
+    background-color: theme('colors.supporting.red.50');
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0.75rem;
+    width: 5ch;
+    height: 5ch;
+    line-height: 0;
+
+    &:hover {
+      background-color: theme('colors.supporting.red.60');
+    }
+  }
+
+  &.negative {
+    background-color: white;
+    border-color: theme('colors.primary.green.50');
+    color: theme('colors.primary.green.50');
+
+    &:hover {
+      background-color: theme('colors.primary.green.50');
+    }
+  }
+}

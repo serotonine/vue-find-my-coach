@@ -1,0 +1,12 @@
+header a:hover,
+header a:focus {
+  text-decoration: underline;
+}
+
+/* CSS now supports nesting rules natively!!!! */
+header {
+  .router-link-active,
+  .router-link-exact-active {
+    color: theme('colors.supporting.yellow.20');
+  }
+}

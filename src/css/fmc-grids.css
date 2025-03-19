@@ -1,0 +1,7 @@
+/* .has-coaches{} */
+.fmc-grid{
+  @apply grid grid-flow-row sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 content-stretch;
+}
+.coach-item-footer-end{
+  @apply h-full flex items-end;
+} 

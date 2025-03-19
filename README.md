@@ -1,4 +1,8 @@
-# find-my-coach
+# Find My Coach
+```
+npx @tailwindcss/cli -i ./src/input.css -o ./src/styles.css --watch
+```
+
 
 ## Project setup
 ```

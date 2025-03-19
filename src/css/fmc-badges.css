@@ -1,0 +1,17 @@
+.badge {
+  border-radius: 2rem;
+  padding: 0.25rem 0.75rem;
+
+  &.career {
+    background-color: theme('colors.primary.green.20');
+  }
+  
+  &.frontend {
+    background-color: theme('colors.primary.blue.30');
+  }
+  
+  &.backend {
+    background-color: theme('colors.supporting.purple.10');
+  }
+}
+

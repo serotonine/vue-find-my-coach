@@ -1,0 +1,67 @@
+/* FORMS */
+label{
+  @apply text-neutrals-80 text-sm;
+}
+input:not([type='checkbox']),
+textarea {
+  @apply rounded-md outline-1 -outline-offset-1 outline-neutrals-40 block w-full min-w-0 grow py-1.5 pr-3 pl-1 text-base focus:outline-2 sm:text-sm/6 border-neutrals-40;
+}
+input[type='checkbox'],
+input[type='radio'] {
+  @apply h-5 w-5 cursor-pointer transition-all rounded-sm border-2 text-primary-blue-80 border-primary-blue-80;
+  
+}
+
+
+[type='checkbox']:checked,
+[type='radio']:checked,
+[type='checkbox']:hover,
+[type='radio']:hover  {
+  @apply bg-primary-blue-80 rounded-sm outline-none;
+ 
+}
+
+[type='checkbox']:focus,
+[type='radio']:focus {
+  /* outline: 2px solid transparent; */
+  /* outline-offset: 2px; */
+  /* --tw-ring-inset: var(--tw-empty); */
+  /* --tw-ring-offset-width: 2px; */
+  /* --tw-ring-offset-color: #fff; */
+  --tw-ring-color:theme('colors.primary.blue.50');
+  background-color:theme('colors.primary.blue.80'); ;
+  /* --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow); */
+}
+ /* OVERRIDE */
+input[type='text']:focus,
+input:where(:not([type])):focus,
+[type='email']:focus,
+[type='url']:focus,
+[type='password']:focus,
+[type='number']:focus,
+[type='date']:focus,
+[type='datetime-local']:focus,
+[type='month']:focus,
+[type='search']:focus,
+[type='tel']:focus,
+[type='time']:focus,
+[type='week']:focus,
+[multiple]:focus,
+textarea:focus,
+select:focus{
+  @apply  ring-primary-blue-50 border-primary-blue-80;
+}
+/* Wrappers */
+.control-group{
+  @apply mb-2;
+  
+}
+.control-group-flex {
+  @apply flex gap-2 mt-4 items-center;
+}
+
+/* section:has(input:checked) {
+  border: 2px solid #f806e4;
+} */

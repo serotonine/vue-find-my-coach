@@ -1,0 +1,57 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import 'fmc-header.css';
+@import 'fmc-forms.css';
+@import 'fmc-buttons.css';
+@import 'fmc-badges.css';
+@import 'fmc-cart-container.css';
+@import 'fmc-grids.css';
+@import 'fmc-dialog.css';
+
+@theme {
+  --font-sans: "stevie-sans", system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* ... */
+}
+
+body {
+  color: theme('colors.neutrals.80');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  @apply leading-none mb-4;
+  font-size: 1.5rem;
+}
+
+p {
+  max-width: 80ch;
+  text-wrap: balance;
+}
+
+body {
+  @apply bg-neutrals-10
+}
+
+/* ERROR */
+.error {
+  color: var(--color-red-800);
+}
