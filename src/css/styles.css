@@ -1148,7 +1148,7 @@ button[type='submit'] {
     }
   }
   &.close {
-    background-color: hsl(360, 71%, 66%);
+    background-color: hsl(200, 60%, 58%);
     border-radius: 50%;
     cursor: pointer;
     padding: 0.75rem;
@@ -1156,7 +1156,7 @@ button[type='submit'] {
     height: 5ch;
     line-height: 0;
     &:hover {
-      background-color: hsl(360, 64%, 55%);
+      background-color: hsl(200, 54%, 49%);
     }
   }
   &.negative {
@@ -1262,7 +1262,7 @@ dialog {
   overflow: hidden;
   background-color: white;
   header {
-    background-color: hsl(360, 64%, 55%);
+    background-color: hsl(200, 60%, 58%);
     color: white;
     width: 100%;
     padding: 1rem;

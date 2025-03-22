@@ -145,7 +145,7 @@ export default {
           !val ||
           (!isNaN(val) && val <= 0)
         ) {
-          console.log(input + " is invalid");
+          // console.log(input + " is invalid");
           this.inputs[input].isValid = false;
           this.formIsValid = false;
         }

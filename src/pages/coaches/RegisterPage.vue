@@ -44,11 +44,6 @@ export default {
     },
 
     isCoach() {
-      console.log(
-        "isCoach RegisterPage",
-        this.$store.getters["_coaches/isCoach"]
-      );
-
       return this.$store.getters["_coaches/isCoach"];
     },
     userID() {

@@ -6,7 +6,7 @@
     <base-dialog :show="isLoading" title="Authenticating...">
       <base-spinner></base-spinner>
     </base-dialog>
-    <cart-container  >
+    <cart-container>
       <h3>{{ submitButtonCaption }}</h3>
       <form @submit.prevent="submit()">
         <div class="control-group">
@@ -56,8 +56,9 @@ export default {
       this.isLoading = true;
       if (this.mode === "signup") {
         try {
-          await this.$store.dispatch("signup", payload );
+          await this.$store.dispatch("signup", payload);
           this.isLoading = false;
+          this.$router.replace("/coaches");
         } catch (error) {
           switch (error.message) {
             case "EMAIL_EXISTS":
@@ -67,16 +68,16 @@ export default {
               this.error = error.message;
               break;
             default:
-              this.error = `ERROR : Failed to fetch.`;
+              this.error = error.message;
           }
         }
         this.isLoading = false;
-      }
-      else if (this.mode === "login") {
+      } else if (this.mode === "login") {
         try {
           await this.$store.dispatch("login", payload);
           this.isLoading = false;
-          this.$router.replace('/coaches');
+          const redirectUrl = "/" + (this.$route.query.redirect || "coaches");
+          this.$router.replace(redirectUrl);
         } catch (error) {
           this.isLoading = false;
           this.error = error.message;
@@ -85,13 +86,12 @@ export default {
               this.error = `ERROR : Email or password is not good. Did you forgot your password?`;
               break;
             default:
-              this.error = `ERROR : Failed to fetch.`;
+            this.error = error.message;
           }
         }
+      } else {
+        return;
       }
-      else{ return; }
-      const redirectUrl = '/' + (this.$route.query.redirect || 'coaches');
-      this.$router.replace(redirectUrl);
     },
     switchAuthMode() {
       if (this.mode === "login") {

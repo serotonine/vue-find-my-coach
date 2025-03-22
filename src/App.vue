@@ -9,7 +9,7 @@
       <router-view v-slot="slotProps">
         <transition name="route" mode="out-in">
           <component :is="slotProps.Component"></component>
-        </transition> 
+        </transition>
       </router-view>
     </div>
   </div>
@@ -44,31 +44,43 @@ export default {
       this.error = null;
     },
   },
+  computed: {
+    didAutoLogout() {
+      return this.$store.getters.didAutoLogout;
+    },
+  },
   created() {
     this.loadFindMyCoach();
+    this.$store.dispatch("autoLogin");
   },
- 
+  watch: {
+    didAutoLogout(currentValue, oldValue) {
+      if (currentValue && currentValue !== oldValue) {
+        this.$router.replace("/coaches");
+      }
+    },
+  },
 };
 </script>
 <style>
 /* TRANSITION */
-.route-enter-from{
-  opacity:0;
+.route-enter-from {
+  opacity: 0;
   transform: translateY(-30px);
 }
-.route-leave-to{
-  opacity:0;
+.route-leave-to {
+  opacity: 0;
   transform: translateY(30px);
 }
-.route-enter-active
-{
+.route-enter-active {
   transition: all 0.3s ease-out;
 }
-.route-leave-active{
+.route-leave-active {
   transition: all 0.3s ease-in;
 }
 .route-enter-to,
-.route-leave-from{
-  opacity:1;
+.route-leave-from {
+  opacity: 1;
   transform: translateY(0);
-}</style>
+}
+</style>

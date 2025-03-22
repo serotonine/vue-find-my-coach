@@ -22,7 +22,7 @@ dialog {
   overflow: hidden;
   background-color: white;
   header {
-    background-color: theme('colors.supporting.red.60');
+    background-color: theme('colors.primary.blue.60');
     color: white;
     width: 100%;
     padding: 1rem;

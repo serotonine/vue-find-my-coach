@@ -47,7 +47,7 @@ button[type='submit'] {
   }
 
   &.close {
-    background-color: theme('colors.supporting.red.50');
+    background-color: theme('colors.primary.blue.60');
     border-radius: 50%;
     cursor: pointer;
     padding: 0.75rem;
@@ -56,7 +56,7 @@ button[type='submit'] {
     line-height: 0;
 
     &:hover {
-      background-color: theme('colors.supporting.red.60');
+      background-color: theme('colors.primary.blue.70');
     }
   }
 

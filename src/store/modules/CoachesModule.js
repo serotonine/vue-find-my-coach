@@ -84,11 +84,6 @@ export default {
     },
     isCoach(_, getters, _2, rootGetters) {
       const userId = rootGetters.userID;
-      console.log('isCoach userID', userId);
-
-      console.log('isCoach coaches', getters.coaches);
-      console.log('isCoach some', getters.coaches.some((coach) => coach.id === userId));
-
       return getters.coaches.some((coach) => coach.id === userId);
     },
    
