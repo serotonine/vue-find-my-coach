@@ -69,7 +69,9 @@ export default {
     loadCoaches() {
       this.$store.dispatch("_coaches/loadCoaches");
       const areas = this.$store.getters["_coaches/getAreas"];
+      console.log(this.activeFilters);
       for (const area of areas) {
+        if(!area){ continue; }
         this.activeFilters[area] = true;
       }
     },
@@ -78,7 +80,7 @@ export default {
     },
   },
   created() {
-    this.loadCoaches();
+   this.loadCoaches();
   },
 };
 </script>

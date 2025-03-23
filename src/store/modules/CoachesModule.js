@@ -49,20 +49,11 @@ export default {
     async registerCoach(context, payload) {
       const userID = context.rootGetters.userID;
       const token = context.rootGetters.token;
-      const coachData = {
-        // How to catch var from another module or parent.
-        id: userID,
-        firstName: payload.first,
-        lastName: payload.last,
-        description: payload.desc,
-        hourlyRate: payload.rate,
-        areas: payload.areas,
-      };
       const response = await fetch(
         `https://vuejs-http-request-d631c-default-rtdb.europe-west1.firebasedatabase.app/findmycoach/coaches/${userID}.json?auth=${token}`,
         {
           method: "PUT",
-          body: JSON.stringify(coachData),
+          body: JSON.stringify(payload),
         }
       );
       //const datas = await response.json();
@@ -70,7 +61,7 @@ export default {
         throw new Error(`${response.status} : ${response.statusText}` || "Failed to fetch");
       }
       context.commit("registerCoach", {
-        ...coachData,
+        ...payload,
         id: userID,
       });
     },

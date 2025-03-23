@@ -1,7 +1,7 @@
 <template>
-  <basic-container class="py-12 2xl:px-90 xl:px-60 lg:px-40">
+  <basic-container class="py-12 2xl:px-[300px] xl:px-60 lg:px-40">
     <cart-container>
-      <h2 class="mt-0">Register as a coach</h2>
+      <h2 class="mt-0 mb-2">Register as a coach</h2>
       <coach-form
         v-if="isAuthenticated && !isCoach"
         @save-contact-data="saveContact"
@@ -28,7 +28,11 @@ export default {
     CoachForm,
   },
   methods: {
-    async saveContact(data) {
+    async saveContact(tab) {
+      // Due to emits warnings the object is in an array.
+      const [data] = tab;
+      // console.log('saveContact', data);
+
       try {
         await this.$store.dispatch("_coaches/registerCoach", data);
       } catch (error) {
@@ -36,7 +40,8 @@ export default {
       }
       // replace => can't go back to the contact page.
       this.$router.replace("/coaches");
-    },
+    
+   },
   },
   computed: {
     isAuthenticated() {

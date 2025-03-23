@@ -990,11 +990,6 @@ textarea {
   outline-color: hsl(211, 13%, 65%);
 }
 
-input:not([type='checkbox']):focus,
-textarea:focus {
-  outline-width: 2px;
-}
-
 @media (min-width: 640px) {
   input:not([type='checkbox']),
 textarea {
@@ -1037,8 +1032,8 @@ input[type='radio'] {
   /* --tw-ring-inset: var(--tw-empty); */
   /* --tw-ring-offset-width: 2px; */
   /* --tw-ring-offset-color: #fff; */
-  --tw-ring-color:hsl(200, 66%, 69%);
-  background-color:hsl(200, 59%, 43%);
+  --tw-ring-color: hsl(200, 66%, 69%);
+  background-color: hsl(200, 59%, 43%);
   /* --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow); */
@@ -1081,9 +1076,37 @@ select:focus {
   gap: 0.5rem;
 }
 
-/* section:has(input:checked) {
-  border: 2px solid #f806e4;
-} */
+/* FormKit */
+
+.formkit-outer {
+  margin-bottom: 0.5rem;
+  &[data-type="textarea"] {
+    margin-top: 0.5rem;
+  }
+  &[data-type="textarea"] {
+    margin-bottom: 1rem;
+  }
+}
+
+[data-invalid="true"]{
+  input{
+    border-color: hsl(360, 67%, 44%);
+  }
+}
+
+[data-message-type="validation"]{
+  color: hsl(360, 67%, 44%);
+}
+
+ul.formkit-options{
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  .formkit-label {
+    margin-left: 0.25rem;
+  }
+}
 
 button[type='text'],
 button[type='button'],
@@ -1357,7 +1380,7 @@ body {
 /* ERROR */
 
 .error {
-  color: var(--color-red-800);
+  color: hsl(360, 67%, 44%);
 }
 
 @media (min-width: 1024px) {
@@ -1378,5 +1401,30 @@ body {
   .\32xl\:px-80 {
     padding-left: 20rem;
     padding-right: 20rem;
+  }
+
+  .\32xl\:px-\[120px\] {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+
+  .\32xl\:px-\[\'120px\'\] {
+    padding-left: '120px';
+    padding-right: '120px';
+  }
+
+  .\32xl\:px-\[\'200px\'\] {
+    padding-left: '200px';
+    padding-right: '200px';
+  }
+
+  .\32xl\:px-\[200px\] {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+
+  .\32xl\:px-\[300px\] {
+    padding-left: 300px;
+    padding-right: 300px;
   }
 }

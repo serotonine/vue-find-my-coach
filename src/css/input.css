@@ -53,5 +53,5 @@ body {
 
 /* ERROR */
 .error {
-  color: var(--color-red-800);
+  color: theme(colors.supporting.red.70);
 }
