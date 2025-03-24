@@ -125,3 +125,30 @@ ul.formkit-options {
     @apply ml-1;
   }
 }
+/* SELECT */
+@supports (appearance: base-select) {
+  select {
+    appearance: base-select;
+   
+    &::picker(select) {
+     appearance: base-select;
+    }
+    &::picker-icon {
+      visibility: hidden;
+     }
+    
+    option{
+      &::checkmark {
+        display: none;
+      }
+      &:hover,
+    &:focus-visible,
+    &:checked {
+      background-color: theme(colors.primary.blue.80);
+      color: white;
+    }
+
+    }
+
+   }
+}

@@ -20,7 +20,6 @@ export default {
   },
   actions: {
     getFullName(_, payload){
-      console.log('getFullName', payload.firstName);  
       return `${payload.firstName}&nbsp;${payload.lastName}`
     },
     loadCoaches(context) {

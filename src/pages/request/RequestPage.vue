@@ -2,7 +2,7 @@
   <basic-container class="py-12">
     <h1 class="mb-6">Requests</h1>
     <form ref="requestForm" class="mb-6 filters-container">
-      <select name="" id="" @change="filterRequests($event.target.value)">
+      <select @change="filterRequests($event.target.value)" class="w-full sm:w-60">
         <option value="">Choose a coach</option>
         <option
           v-for="optie in coachesOpties"

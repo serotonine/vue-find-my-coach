@@ -1,6 +1,6 @@
 <template>
   <basic-container class="py-12">
-    <header class="flex justify-between items-center mb-6">
+    <header class="md:flex md:justify-between md:items-center mb-4 md:mb-6">
       <h1>All Coaches</h1>
       <div class="flex gap-4">
         <button type="button" v-if="!isLoading && isAuthenticated && !isCoach">
@@ -69,13 +69,13 @@ export default {
     loadCoaches() {
       this.$store.dispatch("_coaches/loadCoaches");
       const areas = this.$store.getters["_coaches/getAreas"];
-      console.log(this.activeFilters);
       for (const area of areas) {
         if(!area){ continue; }
         this.activeFilters[area] = true;
       }
     },
-    setFilter(updatedFilters) {
+    setFilter(updatedFiltersTab) {
+      const [updatedFilters] = updatedFiltersTab;
       this.activeFilters = updatedFilters;
     },
   },

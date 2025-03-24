@@ -81,17 +81,16 @@ export default {
     autoLogin(context) {
       const token = localStorage.getItem("token");
       const userID = localStorage.getItem("userID");
-      const tokenExpiration = localStorage.getItem("tokenExpiration");
-      /* Check Epiration in */
-      const expirationIn = +tokenExpiration - new Date().getTime();
-      if (expirationIn < 0) {
+      const tokenExpiration = localStorage.getItem("expirationDate");
+      /* Check Expiration in */
+      const expiresIn = +tokenExpiration - new Date().getTime();
+      if (expiresIn < 0) {
         return;
       }
       /* Check expiration */
       timer = setTimeout(function () {
         context.dispatch("autoLogout");
-      }, expirationIn);
-
+      }, expiresIn);
       if (token && userID) {
         context.commit("setUser", {
           userId: token,

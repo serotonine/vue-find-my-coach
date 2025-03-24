@@ -21,10 +21,6 @@
           suffix-icon-class="hover:text-blue-500"
           v-model.trim="pwd"
         />
-        <!-- <div class="control-group">
-          <label for="pwd">Password</label>
-          <input type="password" name="pwd" id="pwd" v-model.trim="pwd" />
-        </div> -->
         <div class="control-group-flex">
           <button type="submit">{{ submitButtonCaption }}</button>
           <button type="text" class="flat" @click.prevent="switchAuthMode">

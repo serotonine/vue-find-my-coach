@@ -1,6 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import 'fmc-basic-container.css';
 @import 'fmc-header.css';
 @import 'fmc-forms.css';
 @import 'fmc-buttons.css';
@@ -27,14 +28,17 @@ h4,
 h5,
 h6 {
   font-weight: 600;
+  line-height: 1.6;
 }
 
 h1 {
   font-size: 2rem;
+  
 }
 
 h2 {
   font-size: 1.75rem;
+  
 }
 
 h3 {

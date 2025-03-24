@@ -1,7 +1,7 @@
 <template>
 <div>
   <h3>Filters</h3>
-    <span v-for="area in areas" :key="area">
+    <span v-for="area in areas" :key="area" class="max-sm:block">
       <input type="checkbox" :name="area" :id="area" checked @change="setFilter">
       <label :for="area" class="ml-1 mr-2">{{ area }}</label>
     </span>
@@ -34,15 +34,8 @@ export default {
         [inputId]: isChecked
       }
       this.filters = updatedFilters;
-      this.$emit('change-filter', updatedFilters);
+      this.$emit('change-filter', [updatedFilters]);
 
-    },
-    // emits: ['change-filter'],
-    emits: {
-      'change-filter': (updatedFilters)=>{
-        return typeof updatedFilters === 'object'
-        && updatedFilters !== null;
-      }
     },
   }
 };

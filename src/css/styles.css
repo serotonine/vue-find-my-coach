@@ -755,6 +755,12 @@ select {
   margin-left: auto;
 }
 
+@media (min-width: 320px) {
+  .container {
+    max-width: 320px;
+  }
+}
+
 @media (min-width: 640px) {
   .container {
     max-width: 640px;
@@ -897,23 +903,9 @@ select {
   gap: 1rem;
 }
 
-.gap-8 {
-  gap: 2rem;
-}
-
-.bg-primary-blue-100 {
-  --tw-bg-opacity: 1;
-  background-color: hsl(200 72% 31% / var(--tw-bg-opacity, 1));
-}
-
 .py-12 {
   padding-top: 3rem;
   padding-bottom: 3rem;
-}
-
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 
 .text-center {
@@ -923,11 +915,6 @@ select {
 .text-neutrals-40 {
   --tw-text-opacity: 1;
   color: hsl(211 13% 65% / var(--tw-text-opacity, 1));
-}
-
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 .filter {
@@ -942,17 +929,43 @@ select {
   transition-duration: 150ms;
 }
 
-header a:hover,
-header a:focus {
-  text-decoration: underline;
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.main-header {
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: hsl(200 72% 31% / var(--tw-bg-opacity, 1));
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  background-image: linear-gradient(45deg,hsl(200, 68%, 35%) 20%, hsl(200, 72%, 31%) 80%);
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
 }
 
 /* CSS now supports nesting rules natively!!!! */
 
-header {
+.main-header{
   .router-link-active,
   .router-link-exact-active {
     color: hsl(45, 90%, 88%);
+  }
+}
+
+.main-header_wrapper {
+  align-content: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 1024px) {
+  .main-header_wrapper {
+    display: flex;
   }
 }
 
@@ -1193,6 +1206,35 @@ ul.formkit-options {
   gap: 1rem;
   .formkit-label {
     margin-left: 0.25rem;
+  }
+}
+
+/* SELECT */
+
+@supports ((-webkit-appearance: base-select) or (-moz-appearance: base-select) or (appearance: base-select)) {
+  select {
+    -webkit-appearance: base-select;
+       -moz-appearance: base-select;
+            appearance: base-select;
+    &::picker(select) {
+      -webkit-appearance: base-select;
+         -moz-appearance: base-select;
+              appearance: base-select;
+    }
+    &::picker-icon {
+      visibility: hidden;
+    }
+    option{
+      &::checkmark {
+        display: none;
+      }
+      &:hover,
+    &:focus-visible,
+    &:checked {
+        background-color: hsl(200, 59%, 43%);
+        color: white;
+      }
+    }
   }
 }
 
@@ -1439,6 +1481,7 @@ h4,
 h5,
 h6 {
   font-weight: 600;
+  line-height: 1.6;
 }
 
 h1 {
@@ -1476,7 +1519,45 @@ body {
   color: rgb(59 130 246 / var(--tw-text-opacity, 1));
 }
 
+@media not all and (min-width: 640px) {
+  .max-sm\:block {
+    display: block;
+  }
+}
+
+@media (min-width: 640px) {
+  .sm\:w-60 {
+    width: 15rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:mb-6 {
+    margin-bottom: 1.5rem;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:content-center {
+    align-content: center;
+  }
+
+  .md\:items-center {
+    align-items: center;
+  }
+
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+}
+
 @media (min-width: 1024px) {
+  .lg\:gap-8 {
+    gap: 2rem;
+  }
+
   .lg\:px-40 {
     padding-left: 10rem;
     padding-right: 10rem;

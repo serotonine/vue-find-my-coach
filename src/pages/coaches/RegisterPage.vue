@@ -31,14 +31,12 @@ export default {
     async saveContact(tab) {
       // Due to emits warnings the object is in an array.
       const [data] = tab;
-      // console.log('saveContact', data);
-
       try {
         await this.$store.dispatch("_coaches/registerCoach", data);
       } catch (error) {
         console.error("save Contact", error.message);
       }
-      // replace => can't go back to the contact page.
+      // Replace => can't go back to the contact page.
       this.$router.replace("/coaches");
     
    },
