@@ -13,10 +13,18 @@
           <label for="">Email</label>
           <input type="email" name="email" id="email" v-model.trim="email" />
         </div>
-        <div class="control-group">
+        <FormKit
+          :type="isPwdVisible ? 'text' : 'password'"
+          label="Password"
+          :suffix-icon="passwordIcon"
+          @suffix-icon-click="togglePwdVisibility"
+          suffix-icon-class="hover:text-blue-500"
+          v-model.trim="pwd"
+        />
+        <!-- <div class="control-group">
           <label for="pwd">Password</label>
           <input type="password" name="pwd" id="pwd" v-model.trim="pwd" />
-        </div>
+        </div> -->
         <div class="control-group-flex">
           <button type="submit">{{ submitButtonCaption }}</button>
           <button type="text" class="flat" @click.prevent="switchAuthMode">
@@ -42,13 +50,15 @@ export default {
       mode: "login",
       isLoading: false,
       error: null,
+      isPwdVisible: false,
     };
   },
   methods: {
+    togglePwdVisibility() {
+      this.isPwdVisible = !this.isPwdVisible;
+    },
     async submit() {
       //TODO validation.
-      // if(this.mode === 'login'){
-      // }
       const payload = {
         email: this.email,
         password: this.pwd,
@@ -86,7 +96,7 @@ export default {
               this.error = `ERROR : Email or password is not good. Did you forgot your password?`;
               break;
             default:
-            this.error = error.message;
+              this.error = error.message;
           }
         }
       } else {
@@ -105,6 +115,9 @@ export default {
     },
   },
   computed: {
+    passwordIcon() {
+      return this.isPwdVisible ? "eye" : "eyeClosed";
+    },
     submitButtonCaption() {
       if (this.mode === "login") {
         return "Login";

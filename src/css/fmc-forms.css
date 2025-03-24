@@ -5,7 +5,8 @@ label {
 
 input:not([type='checkbox']),
 textarea {
-  @apply rounded-md outline-1 -outline-offset-1 outline-neutrals-40 block w-full min-w-0 grow py-1.5 pr-3 pl-1 text-base  sm:text-sm/6 border-neutrals-40;
+  
+  @apply rounded-md outline-1 -outline-offset-1 outline-neutrals-40 block w-full min-w-0 grow py-1.5 pr-3 pl-1 text-base sm:text-sm/6 border-neutrals-40;
 }
 
 input[type='checkbox'],
@@ -25,17 +26,8 @@ input[type='radio'] {
 
 [type='checkbox']:focus,
 [type='radio']:focus {
-  /* outline: 2px solid transparent; */
-  /* outline-offset: 2px; */
-  /* --tw-ring-inset: var(--tw-empty); */
-  /* --tw-ring-offset-width: 2px; */
-  /* --tw-ring-offset-color: #fff; */
   --tw-ring-color: theme('colors.primary.blue.50');
   background-color: theme('colors.primary.blue.80');
-  ;
-  /* --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow); */
 }
 
 /* OVERRIDE */
@@ -69,27 +61,67 @@ select:focus {
 }
 
 /* FormKit */
-.formkit-outer{
+.formkit-outer {
   @apply mb-2;
-  &[data-type="textarea"]{
+
+  &[data-type="textarea"] {
     @apply mt-2 mb-4;
   }
+  &[data-suffix-icon="true"]{
+    display:flex;
+
+  }
 }
-[data-invalid="true"]{
-  input{
+/* Password */
+div[data-suffix-icon="true"]  {
+  @apply w-full;
+  .formkit-wrapper{
+    @apply w-full;
+  }
+  .formkit-inner{
+    @apply rounded-md outline-1 -outline-offset-1 outline-neutrals-40 w-full min-w-0 text-base sm:text-sm/6 border border-neutrals-60 flex gap-2 items-center justify-between pr-1;
+    &:focus {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      @apply ring-primary-blue-50 border-primary-blue-80;
+    }
+  }
+   .formkit-input{
+      @apply shrink w-8;
+      border:none;
+      &:focus {
+        outline:none;
+        box-shadow: none
+      }
+    }
+    .formkit-suffix-icon{
+      @apply w-4 h-auto;
+      &:hover,
+      &:focus {
+        color: theme('colors.primary.blue.80');
+      }
+    }
+  
+
+}
+
+[data-invalid="true"] {
+  input {
     border-color: theme(colors.supporting.red.70);
   }
 }
 
-[data-message-type="validation"]{
+[data-message-type="validation"] {
   color: theme(colors.supporting.red.70);
 }
-ul.formkit-options{
+
+ul.formkit-options {
   margin-top: 1rem;
   display: flex;
   align-items: center;
   gap: 1rem;
-  .formkit-label{
+
+  .formkit-label {
     @apply ml-1;
   }
 }
