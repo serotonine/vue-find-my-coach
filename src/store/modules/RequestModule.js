@@ -8,7 +8,7 @@ export default {
   },
   mutations: {
     addRequest(state, payload) {
-      state.requests.push(payload);
+      state.requests.unshift(payload);
     },
     setRequests(state, payload) {
       state.requests = payload;
@@ -24,13 +24,14 @@ export default {
       for (const key in root.requests) {
         requests.push({
           id: key,
-          date: root.requests[key].id,
+          date: root.requests[key].date,
           coachId: root.requests[key].coachId,
+          name:root.requests[key].name,
           email: root.requests[key].email,
           message: root.requests[key].message,
         });
       }
-      context.commit("setRequests", requests);
+      context.commit("setRequests", requests.reverse());
     },
     // payload.
     async addRequest(context, payload) {
@@ -38,6 +39,7 @@ export default {
         // How to catch var from another module or parent.
         date: Date.now(),
         coachId: payload.coachId,
+        name:payload.name,
         email: payload.email,
         message: payload.message,
       };
@@ -48,7 +50,7 @@ export default {
           body: JSON.stringify(requestData),
         }
       );
-      // const datas = await response.json();
+      //const datas = await response.json();
       if (!response.ok) {
         throw new Error(`${response.status} : ${response.statusText}` || "Failed to fetch");
       }

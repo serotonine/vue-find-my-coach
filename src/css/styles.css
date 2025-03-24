@@ -847,6 +847,10 @@ select {
   margin-top: 1rem;
 }
 
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
 .block {
   display: block;
 }
@@ -912,9 +916,32 @@ select {
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
 .text-neutrals-40 {
   --tw-text-opacity: 1;
   color: hsl(211 13% 65% / var(--tw-text-opacity, 1));
+}
+
+.text-neutrals-50 {
+  --tw-text-opacity: 1;
+  color: hsl(211 10% 53% / var(--tw-text-opacity, 1));
+}
+
+.text-primary-blue-100 {
+  --tw-text-opacity: 1;
+  color: hsl(200 72% 31% / var(--tw-text-opacity, 1));
 }
 
 .filter {
@@ -1236,6 +1263,10 @@ ul.formkit-options {
       }
     }
   }
+}
+
+#userName{
+  display:none;
 }
 
 button[type='text'],
