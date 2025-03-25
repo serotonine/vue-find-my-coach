@@ -2,7 +2,10 @@
   <basic-container class="py-12">
     <h1 class="mb-6">Requests</h1>
     <form ref="requestForm" class="mb-6 filters-container">
-      <select @change="filterRequests($event.target.value)" class="w-full sm:w-60">
+      <select
+        @change="filterRequests($event.target.value)"
+        class="w-full sm:w-60"
+      >
         <option value="">Choose a coach</option>
         <option
           v-for="optie in coachesOpties"
@@ -66,10 +69,12 @@ export default {
   computed: {
     requests() {
       const allRequests = this.$store.getters["_request/getRequests"];
-
       if (this.filteredRequests.length === 0 && this.isFilteredRequests) {
         if (this.$store.getters.isAuthenticated && this.isVal) {
-          this.filterRequests(this.$store.getters.userID);
+          const userRequests = this.filterRequests(this.$store.getters.userID);
+          if (!userRequests) {
+            return allRequests;
+          }
         }
         return allRequests;
       }
