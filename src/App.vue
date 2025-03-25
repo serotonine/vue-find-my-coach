@@ -17,13 +17,13 @@
 
 <script>
 import TheHeader from "./components/TheHeader.vue";
-import BaseDialog from "@/components/UI/BaseDialog.vue";
+// import BaseDialog from "@/components/UI/BaseDialog.vue";
 
 export default {
   name: "App",
   components: {
     TheHeader,
-    BaseDialog,
+   // BaseDialog,
   },
   data() {
     return {

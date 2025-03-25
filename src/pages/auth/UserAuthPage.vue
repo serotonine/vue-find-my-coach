@@ -112,7 +112,7 @@ export default {
   },
   computed: {
     passwordIcon() {
-      return this.isPwdVisible ? "eye" : "eyeClosed";
+      return this.isPwdVisible ? "eyeClosed" :"eye" ;
     },
     submitButtonCaption() {
       if (this.mode === "login") {

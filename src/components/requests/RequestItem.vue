@@ -72,7 +72,6 @@ export default {
         weekday: "long",
       };
       const date = new Date(this.request.date);
-      console.log(date);
       return Intl.DateTimeFormat("fr-BE", options).format(date);
     },
   },
